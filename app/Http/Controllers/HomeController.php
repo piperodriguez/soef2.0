@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Servicios;
 
 class HomeController extends Controller
 {
@@ -27,6 +28,8 @@ class HomeController extends Controller
     }
     public function bienvenido()
     {
+        $servicios = Servicios::all();
+        //dd($servicios);
         return view('welcome');
     }
 }

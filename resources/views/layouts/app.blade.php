@@ -10,7 +10,11 @@
     <title>{{ config('app.name', 'SOEF') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/librerias/jquery-3.4.1.js') }}" defer></script>
+    <script src="{{ asset('js/librerias/bootstrap.min.js') }}" defer></script>
+    <script src="{{ asset('js/librerias/popper.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
+
 
 
     <!-- Fonts -->
@@ -20,6 +24,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ asset('css/librerias/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
 
 </head>
 <body>
@@ -44,8 +49,17 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            <li lass="nav-item">
+                                <a class="nav-link" href="#feature">¿Que somos?</a>
+                            </li>
+                            <li lass="nav-item">
+                                <a class="nav-link" href="#portfolio">Servicios</a>
+                            </li>
+                            <li lass="nav-item">
+                                <a class="nav-link" href="#contact">Contáctenos</a>
+                            </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">

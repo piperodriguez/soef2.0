@@ -9,4 +9,17 @@
     color: rgba(251, 251, 251, 0.9) !important;
     font-weight: bold;
 }
-
+#cta-1 {
+  padding: 40px 0px;
+}
+.cta-info {
+  border: 5px solid #226376;
+  padding: 40px 0px;
+}
+.cta-info h3 {
+  font-size: 24px;
+}
+.carousel {
+    position: relative;
+    margin-top: -1.7%;
+}
