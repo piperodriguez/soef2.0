@@ -1,0 +1,36 @@
+.btnblueadminfo{
+	background-color: #175e77 !important;
+	color: #edecec !important;
+}
+
+.btnorangeadminfo{
+	background-color: #ae6727 !important;
+	color: #edecec !important;
+}
+.btnSencilloToastr{
+	background-color: #edecec;
+}
+thead input {
+	width: 100%;
+}
+
+thead {
+	background-color: #175e77 !important;
+    color: #edecec !important;
+}
+tr:hover td
+{
+  cursor: pointer !important;
+}
+table.dataTable.display tbody>tr.odd.selected, table.dataTable.display tbody>tr.odd>.selected {
+    background-color: #daf2ff !important;
+}
+table.dataTable.display tbody>tr.odd.selected>.sorting_1, table.dataTable.order-column.stripe tbody>tr.odd.selected>.sorting_1 {
+    background-color: #daf2ff !important;
+}
+table.dataTable tbody>tr.selected, table.dataTable tbody>tr>.selected {
+    background-color: #daf2ff !important;
+}
+table.dataTable.display tbody>tr.even.selected>.sorting_1, table.dataTable.order-column.stripe tbody>tr.even.selected>.sorting_1 {
+    background-color: #daf2ff !important;
+}

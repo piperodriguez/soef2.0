@@ -1,0 +1,22 @@
+{
+	"data" : [
+		{
+			"nombre": "Juan Felipe Rodríguez Vargas",
+			"genero": "Masculino",
+			"edad": "22",
+			"cargo": "Programador Php junior",
+		},
+		{
+			"nombre": "Juan David Quintero",
+			"genero": "Masculino",
+			"edad": "28",
+			"cargo": "Líder tecnico Desarrollo",
+		},
+		{
+			"nombre": "Yuri Vanessa Castiblanco",
+			"genero": "Femenino",
+			"edad": "25",
+			"cargo": "Programador Php junior",
+		},
+	]
+}
