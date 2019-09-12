@@ -1,0 +1,12 @@
+.bgSoefNav{
+	background-color:#3492AB!important;
+}
+.navbar-light .navbar-brand, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: rgba(251, 251, 251, 0.9) !important;
+    font-weight: bold;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(251, 251, 251, 0.9) !important;
+    font-weight: bold;
+}
+
