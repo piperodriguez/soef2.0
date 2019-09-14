@@ -8,14 +8,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'SOEF') }}</title>
+    <link href="{{ asset('css/librerias/bootstrap.css') }}" rel="stylesheet" type="text/css" >
+
 
     <!-- Scripts -->
-    <script src="{{ asset('js/librerias/jquery-3.4.1.js') }}" defer></script>
-    <script src="{{ asset('js/librerias/bootstrap.min.js') }}" defer></script>
-    <script src="{{ asset('js/librerias/popper.js') }}" defer></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/librerias/jquery-3.4.1.js') }}"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
+    <script src="{{ asset('js/librerias/bootstrap.min.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,7 +25,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/mystyle.css') }}" rel="stylesheet" type="text/css" >
-    <link href="{{ asset('css/librerias/bootstrap.min.css') }}" rel="stylesheet" type="text/css" >
 
 </head>
 <body>
@@ -41,7 +41,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'SOEF') }}
+                            <span style="font-size: 3x5px;">{{ config('app.name', 'SOEF') }}</span>
                         </a>
                     </ul>
 

@@ -14,7 +14,12 @@ class ServiciosTableSeeder extends Seeder
     {
     	Servicios::create([
         	'nombre_servicio' => 'Hogar',
-
+        ]);
+        Servicios::create([
+            'nombre_servicio' => 'Eventos',
+        ]);
+        Servicios::create([
+            'nombre_servicio' => 'Otros',
         ]);
     }
 }

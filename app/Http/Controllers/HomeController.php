@@ -28,8 +28,12 @@ class HomeController extends Controller
     }
     public function bienvenido()
     {
-        $servicios = Servicios::all();
-        //dd($servicios);
-        return view('welcome');
+        $servicios = Servicios::selectRaw('nombre_servicio')->get();
+        $contador = Servicios::paginate();
+
+        $data = ['servicios' => $servicios, 'contador' => $contador];
+
+        return view('welcome')->with('data', $data);
+
     }
 }
