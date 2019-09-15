@@ -10,7 +10,8 @@
       <section id="cta-1">
          <div class="container">
             <div class="row">
-               <div class="cta-info text-center">
+               <div class="cta-info text-center" style="padding-right: 3%;
+padding-left: 3%;">
                   <h3>
                      <h2>“Le da las herramientas necesarias para que encuentre los servicios que necesita”</h2>
                   </h3>
@@ -21,7 +22,7 @@
       <section class="section-padding wow fadeInUp delay-02s" id="portfolio">
          <div class="container">
             <div class="row">
-               <div class="col-md-3 col-sm-12">
+               <div class="col-3">
                   <div class="section-title">
                      <h2 class="head-title">Algunos de nuestros servicios</h2>
                      <hr class="botm-line">

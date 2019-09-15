@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Servicios;
+
 
 class HomeController extends Controller
 {
@@ -24,17 +24,8 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['user', 'admin']);
+       $request->user()->authorizeRoles(['user', 'admin']);
         return view('home');
     }
-    public function bienvenido()
-    {
-        $servicios = Servicios::selectRaw('nombre_servicio')->get();
-        $contador = Servicios::paginate();
 
-        $data = ['servicios' => $servicios, 'contador' => $contador];
-
-        return view('welcome')->with('data', $data);
-
-    }
 }
