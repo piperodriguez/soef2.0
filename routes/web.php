@@ -17,3 +17,5 @@ Route::get('/', 'IndexController@bienvenido');
 Route::get('/home', 'HomeController@index');
 
 Auth::routes();
+
+Route::get('/admin', 'Admin\AdminController@tablero')->name('Mantenimiento');

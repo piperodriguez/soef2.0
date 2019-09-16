@@ -67,6 +67,18 @@
                                 </li>
                             @endif
                         @else
+
+                            @switch(Auth::user()->roles[0]["name"] )
+                                @case('admin')
+                                    <li class="nav-itme dropdown">
+                                        <a  class="nav-link" href="{{ route('Mantenimiento') }}">Mantenimiento</a>
+                                    </li>
+                                    @break
+                                @case('user')
+
+                                    @break
+                            @endswitch
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->username }} <span class="caret"></span>

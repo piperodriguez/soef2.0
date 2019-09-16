@@ -19,5 +19,9 @@ class RoleUsersTable extends Seeder
         	'role_id' => 2,
         	'user_id' => 1
         ]);
+        UsersRole::create([
+            'role_id' => 2,
+            'user_id' => 3
+        ]);
     }
 }

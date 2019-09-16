@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in {{ Auth::user()->username }}!
+                    <br>
+                    su rol en esta aplicacion es {{ Auth::user()->roles[0]["name"] }}!
                 </div>
             </div>
         </div>
