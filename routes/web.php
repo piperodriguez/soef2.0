@@ -19,3 +19,7 @@ Route::get('/home', 'HomeController@index');
 Auth::routes();
 
 Route::get('/admin', 'Admin\AdminController@tablero')->name('Mantenimiento');
+
+Route::get('profile', 'UserController@profile');
+
+Route::post('profile', 'UserController@update_avatar');
