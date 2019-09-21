@@ -23,3 +23,5 @@ Route::get('/admin', 'Admin\AdminController@tablero')->name('Mantenimiento');
 Route::get('profile', 'UserController@profile');
 
 Route::post('profile', 'UserController@update_avatar');
+
+Route::get('servicios', 'Admin\ServiciosController@index')->name('servicios');
