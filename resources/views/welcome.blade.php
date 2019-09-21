@@ -36,7 +36,17 @@ padding-left: 3%;">
                   @forelse($data['servicios'] as $servicio)
                   <div class="col padding-right-zero">
                      <div class="portfolio-box design">
-                        <h1>{{$servicio->nombre_servicio}}</h1>
+                        <center>
+                           <h3>{{$servicio->nombre_servicio}}</h3>
+                        </center>
+                        <ul>
+                        @php
+                           $servicioid = $servicio->id_servicio;
+                           $profesiones = $data['profesionModel'];
+                           $profesionesArr = $profesiones::find($servicioid);
+                        @endphp
+                           <li>{{$profesionesArr['nombre_profesion']}}</li>
+                        </ul>
                      </div>
                   </div>
                   @empty
