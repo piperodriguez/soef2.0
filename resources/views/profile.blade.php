@@ -4,6 +4,7 @@
 <style type="text/css">
 img.rounded-circle.avatar {
     width: 255px !important;
+    height: 255px !important;
 }
 </style>
     <div class="container">

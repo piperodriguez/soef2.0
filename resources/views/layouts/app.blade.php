@@ -17,10 +17,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
     <script src="{{ asset('js/librerias/bootstrap.min.js') }}"></script>
-
+    <script src="{{ asset('js/librerias/toastr.min.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/librerias/toastr.css') }}">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
@@ -41,7 +42,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                            <span style="font-size: 3x5px;">{{ config('app.name', 'SOEF') }}</span>
+                            <span style="font-size: 35px;">{{ config('app.name', 'SOEF') }}</span>
                         </a>
                     </ul>
 
@@ -81,7 +82,7 @@
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    <img class="rounded-circle" style="width: 35px;" src="/storage/avatars/{{ Auth::user()->avatar }}"/>
+                                    <img class="rounded-circle" style="width: 35px; height: 35px;" src="/storage/avatars/{{ Auth::user()->avatar }}"/>
                                     <span class="caret"></span>
                                 </a>
 
