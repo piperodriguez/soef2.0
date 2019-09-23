@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Servicios;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Response;
+
 
 class ServiciosController extends Controller
 {
@@ -14,7 +17,8 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-       return "hello world";
+        $data['servicios'] = Servicios::orderBy('id_servicio','desc')->paginate(8);
+        return view('admin/servicios')->with('data', $data);
     }
 
     /**
@@ -35,7 +39,13 @@ class ServiciosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $servicioId = $request->id_servicio;
+
+        $servicio   = Servicios::updateOrCreate(['id_servicio' => $servicioId],
+                    ['nombre_servicio' => $request->nombre_servicio]);
+
+        return Response::json($servicio);
+
     }
 
     /**
@@ -55,9 +65,12 @@ class ServiciosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $id = $_REQUEST['servicio_id'];
+        $where = array('id_servicio' => $id);
+        $servicio  = Servicios::where($where)->first();
+        return Response::json($servicio);
     }
 
     /**

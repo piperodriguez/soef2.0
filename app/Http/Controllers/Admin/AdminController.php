@@ -16,6 +16,6 @@ class AdminController extends Controller
     public function tablero(Request $request)
     {
     	$request->user()->authorizeRoles(['admin']);
-    	return view('admin/listaUsuarios');
+    	return view('admin/matenimiento');
     }
 }
