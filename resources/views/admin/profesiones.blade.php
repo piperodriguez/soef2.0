@@ -20,31 +20,33 @@
   </li>
 </ul>
 <div class="container">
-    <h2 style="margin-top: 12px;" class="alert alert-dark">Lista Servicios</h2><br>
+    <h2 style="margin-top: 12px;" class="alert alert-dark">Lista Profesiones</h2><br>
     <div class="row">
         <div class="col-12">
-          <a href="javascript:void(0)" class="btn btn-dark mb-2" id="create-new-servicio">Agregar Servicio</a>
+          <a href="javascript:void(0)" class="btn btn-dark mb-2" id="create-new-profesion">Agregar Profesion</a>
           <table class="table table-bordered" id="laravel_crud">
            <thead>
               <tr>
                  <th>Id</th>
                  <th>Servicio</th>
+                 <th>Profesion</th>
                  <td colspan="2">Acción</td>
               </tr>
            </thead>
            <tbody id="users-crud">
-              @foreach($data['servicios'] as $servicio)
-              <tr id="user_id_{{ $servicio->id }}">
-                 <td>{{ $servicio->id_servicio  }}</td>
-                 <td>{{ $servicio->nombre_servicio }}</td>
-                 <td><a href="javascript:void(0)" id="edit-user" data-id="{{ $servicio->id_servicio }}" class="btn btn-dark">Editar</a></td>
+              @foreach($data['profesiones'] as $profesion)
+              <tr id="user_id_{{ $profesion->id_profesion }}">
+                 <td>{{ $profesion->id_profesion  }}</td>
+              	 <td>{{ $profesion->servicio['nombre_servicio'] }}</td>
+                 <td>{{ $profesion->nombre_profesion }}</td>
+                 <td><a href="javascript:void(0)" id="edit-profesion" data-id="{{ $profesion->id_profesion }}" class="btn btn-dark">Editar</a></td>
                  <td>
-                  <a href="javascript:void(0)" id="delete-user" data-id="{{ $servicio->id_servicio }}" class="btn btn-danger delete-user">Eliminar</a></td>
+                  <a href="javascript:void(0)" id="delete-user" data-id="{{ $profesion->id_profesion }}" class="btn btn-danger delete-user">Eliminar</a></td>
               </tr>
               @endforeach
            </tbody>
           </table>
-          {{ $data['servicios']->links() }}
+          {{ $data['profesiones']->links() }}
        </div>
     </div>
 </div>
@@ -55,18 +57,27 @@
             <h4 class="modal-title" id="userCrudModal"></h4>
         </div>
         <div class="modal-body">
-            <form id="userForm" name="userForm" class="form-horizontal">
-               <input type="hidden" name="id_servicio" id="id_servicio">
+            <form id="profesionForm" name="profesionForm" class="form-horizontal">
+               <input type="hidden" name="id_profesion" id="id_profesion">
+				<div class="form-group">
+				  <label for="servicio" class="col-sm-4 control-label">Seleccione Servicio</label>
+				  <select name="id_servicio" class="form-control">
+				    <option selected="selected">Seleccione</option>
+				    @foreach($data['servicios'] as $servicio)
+				    	<option value="{{$servicio->id_servicio}}">{{$servicio->nombre_servicio}}</option>
+				    @endforeach
+				  </select>
+				</div>
                 <div class="form-group">
-                    <label for="name" class="col-sm-4 control-label">Nombre Servicio</label>
+                    <label for="name" class="col-sm-4 control-label">Nombre Profesion</label>
                     <div class="col-sm-12">
-                        <input type="text" class="form-control" id="name" name="nombre_servicio" placeholder="Ingrese el Servicio" value="" maxlength="50" required="">
+                        <input type="text" class="form-control" id="name" name="nombre_profesion" placeholder="Ingrese el Profesion" value="" maxlength="50" required="">
                     </div>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="btn-save" value="create-user">Guardar Cambios
+            <button type="button" class="btn btn-primary" id="btn-save" value="create-profesion">Guardar Cambios
             </button>
         </div>
     </div>
@@ -80,10 +91,10 @@
         }
     });
     /*  When user click add user button */
-    $('#create-new-servicio').click(function () {
+    $('#create-new-profesion').click(function () {
         $('#btn-save').val("create-user");
-        $('#userForm').trigger("reset");
-        $('#userCrudModal').html("Agregar Nuevo Servicio");
+        $('#profesionForm').trigger("reset");
+        $('#userCrudModal').html("Agregar Nuevo Profesion");
         $('#ajax-crud-modal').modal('show');
     });
 
@@ -91,17 +102,17 @@
     	var actionType = $('#btn-save').val();
     	$('#btn-save').html('Sending..');
 	      $.ajax({
-	          data: $('#userForm').serialize(),
-	          url: `{{ route('serviciosSave')}}`,
+	          data: $('#profesionForm').serialize(),
+	          url: `{{ route('profesionesSave')}}`,
 	          type: "POST",
 	          dataType: 'json',
 	          success: function (data) {
 
-	              var user = '<tr id="user_id_' + data.id_servicio + '"><td>' + data.id_servicio + '</td><td>' + data.nombre_servicio + '</td>';
-	              user += '<td><a href="javascript:void(0)" id="edit-user" data-id="' + data.id_servicio + '" class="btn btn-dark">Editar</a></td>';
-	              user += '<td><a href="javascript:void(0)" id="delete-user" data-id="' + data.id_servicio + '" class="btn btn-danger delete-user">Eliminar</a></td></tr>';
+	              var user = '<tr id="user_id_' + data.id_profesion + '"><td>' + data.id_profesion + '</td><td>' + data.nombre_profesion + '</td>';
+	              user += '<td><a href="javascript:void(0)" id="edit-user" data-id="' + data.id_profesion + '" class="btn btn-dark">Editar</a></td>';
+	              user += '<td><a href="javascript:void(0)" id="delete-user" data-id="' + data.id_profesion + '" class="btn btn-danger delete-user">Eliminar</a></td></tr>';
 
-	              if (actionType == "create-user") {
+	              if (actionType == "create-profesion") {
 	                  $('#users-crud').prepend(user);
 
 	              } else if(actionType == "edit-user"){
@@ -122,11 +133,11 @@
 	      });
     });
    /* When click edit user */
-    $('body').on('click', '#edit-user', function () {
-      let servicio_id = $(this).data('id');
+    $('body').on('click', '#edit-profesion', function () {
+      let profesion_id = $(this).data('id');
 	      $.ajax({
-	          data: { servicio_id : servicio_id },
-	          url: "{{ url('servicios')}}"+'/'+servicio_id+'/edit',
+	          data: { profesion_id : profesion_id },
+	          url: "{{ url('servicios')}}"+'/'+profesion_id+'/edit',
 	          type: "GET",
 	          dataType: 'json',
 	          success: function (data) {
