@@ -3,7 +3,7 @@
 
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link" onclick="getView(`{{ route('servicios')}}`)">Servicios</a>
+    <a class="nav-link" href="{{ route('servicios')}}">Servicios</a>
   <li class="nav-item">
     <a class="nav-link" onclick="getView(`pepe`)">Profesiones</a>
   </li>

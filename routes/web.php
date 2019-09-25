@@ -26,4 +26,5 @@ Route::post('profile', 'UserController@update_avatar');
 
 Route::get('servicios', 'Admin\ServiciosController@index')->name('servicios');
 Route::post('servicios', 'Admin\ServiciosController@store')->name('serviciosSave');
-Route::get('servicios/edit', 'Admin\ServiciosController@edit')->name('serviciosFormUpdate');
+Route::get('servicios/{id}/edit', 'Admin\ServiciosController@edit')->name('serviciosFormUpdate');
+Route::delete('servicios/{id}', 'Admin\ServiciosController@destroy');

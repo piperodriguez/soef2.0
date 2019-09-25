@@ -8,20 +8,20 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'SOEF') }}</title>
-    <link href="{{ asset('css/librerias/bootstrap.css') }}" rel="stylesheet" type="text/css" >
-
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/librerias/jquery-3.4.1.js') }}"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
-    <script src="{{ asset('js/librerias/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/librerias/toastr.min.js') }}"></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <link href="{{ asset('css/librerias/bootstrap.css') }}" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" type="text/css" href="{{ asset('css/librerias/toastr.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/librerias/webfonts/fontawesome.min.css') }}">
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/librerias/jquery-3.4.1.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="{{ asset('js/librerias/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/librerias/toastr.min.js') }}"></script>
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
@@ -72,7 +72,7 @@
                             @switch(Auth::user()->roles[0]["name"] )
                                 @case('admin')
                                     <li class="nav-itme dropdown">
-                                        <a  class="nav-link" href="{{ route('Mantenimiento') }}">Mantenimiento</a>
+                                        <a  class="nav-link" href="{{ route('servicios') }}">Mantenimiento</a>
                                     </li>
                                     @break
                                 @case('user')
@@ -110,6 +110,7 @@
         <main class="py-4">
             @yield('content')
         </main>
+
     </div>
 </body>
 </html>

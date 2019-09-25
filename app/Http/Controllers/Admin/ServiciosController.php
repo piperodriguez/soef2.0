@@ -17,7 +17,7 @@ class ServiciosController extends Controller
      */
     public function index()
     {
-        $data['servicios'] = Servicios::orderBy('id_servicio','desc')->paginate(8);
+        $data['servicios'] = Servicios::orderBy('id_servicio','asc')->paginate(3);
         return view('admin/servicios')->with('data', $data);
     }
 
@@ -65,9 +65,9 @@ class ServiciosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        $id = $_REQUEST['servicio_id'];
+
         $where = array('id_servicio' => $id);
         $servicio  = Servicios::where($where)->first();
         return Response::json($servicio);
@@ -93,6 +93,7 @@ class ServiciosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $servicio = Servicios::where('id_servicio',$id)->delete();
+        return Response::json($servicio);
     }
 }
