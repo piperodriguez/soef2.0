@@ -59,15 +59,15 @@
         <div class="modal-body">
             <form id="profesionForm" name="profesionForm" class="form-horizontal">
                <input type="hidden" name="id_profesion" id="id_profesion">
-				<div class="form-group">
-				  <label for="servicio" class="col-sm-4 control-label">Seleccione Servicio</label>
-				  <select name="id_servicio" class="form-control">
-				    <option selected="selected">Seleccione</option>
-				    @foreach($data['servicios'] as $servicio)
-				    	<option value="{{$servicio->id_servicio}}">{{$servicio->nombre_servicio}}</option>
-				    @endforeach
-				  </select>
-				</div>
+        				<div class="form-group">
+        				  <label for="servicio" class="col-sm-4 control-label">Seleccione Servicio</label>
+        				  <select name="id_servicio" class="form-control">
+        				    <option selected="selected" id="id_servicio" value="">Seleccione</option>
+        				    @foreach($data['servicios'] as $servicio)
+        				    	<option  value="{{$servicio->id_servicio}}">{{$servicio->nombre_servicio}}</option>
+        				    @endforeach
+        				  </select>
+        				</div>
                 <div class="form-group">
                     <label for="name" class="col-sm-4 control-label">Nombre Profesion</label>
                     <div class="col-sm-12">
@@ -92,14 +92,14 @@
     });
     /*  When user click add user button */
     $('#create-new-profesion').click(function () {
-        $('#btn-save').val("create-user");
+        $('#btn-save').val("create-profesion");
         $('#profesionForm').trigger("reset");
         $('#userCrudModal').html("Agregar Nuevo Profesion");
         $('#ajax-crud-modal').modal('show');
     });
 
     $("#btn-save").on('click', function(){
-    	var actionType = $('#btn-save').val();
+    	let actionType = $('#btn-save').val();
     	$('#btn-save').html('Sending..');
 	      $.ajax({
 	          data: $('#profesionForm').serialize(),
@@ -114,10 +114,12 @@
 
 	              if (actionType == "create-profesion") {
 	                  $('#users-crud').prepend(user);
-
+                    location.reload();
 	              } else if(actionType == "edit-user"){
 
-	                  $("#user_id_" + data.id_servicio).replaceWith(user);
+                    alert('update');
+	                  $("#user_id_" + data.id_profesion).replaceWith(user);
+
                     location.reload();
 	              }
 
@@ -134,18 +136,22 @@
     });
    /* When click edit user */
     $('body').on('click', '#edit-profesion', function () {
-      let profesion_id = $(this).data('id');
+      var profesion_id = $(this).data('id');
 	      $.ajax({
 	          data: { profesion_id : profesion_id },
-	          url: "{{ url('servicios')}}"+'/'+profesion_id+'/edit',
+	          url: "{{ url('profesiones')}}"+'/'+profesion_id+'/edit',
 	          type: "GET",
 	          dataType: 'json',
 	          success: function (data) {
-	          	$('#userCrudModal').html("Editar Servicio");
-		          $('#btn-save').val("edit-user");
-		          $('#ajax-crud-modal').modal('show');
-		          $('#id_servicio').val(data.id_servicio);
-		          $('#name').val(data.nombre_servicio);
+
+              $('#userCrudModal').html("Editar Servicio");
+              $('#btn-save').val("edit-user");
+              $('#ajax-crud-modal').modal('show');
+              $('#id_profesion').val(data['profesion']['id_profesion']);
+              $("#id_servicio").val(data['servicio']['id_servicio']);
+              $("#id_servicio").text(data['servicio']['nombre_servicio']);
+              $('#name').val(data['profesion']['nombre_profesion']);
+
 	          },
 	          error: function (data) {
 	              console.log('Error:', data);

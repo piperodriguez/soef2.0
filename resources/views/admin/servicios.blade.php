@@ -103,7 +103,6 @@
 
 	              if (actionType == "create-user") {
 	                  $('#users-crud').prepend(user);
-
 	              } else if(actionType == "edit-user"){
 
 	                  $("#user_id_" + data.id_servicio).replaceWith(user);

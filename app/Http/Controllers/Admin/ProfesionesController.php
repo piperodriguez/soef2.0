@@ -5,7 +5,7 @@ use App\Models\Profesiones;
 use App\Models\Servicios;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Response;
 class ProfesionesController extends Controller
 {
     /**
@@ -41,9 +41,14 @@ class ProfesionesController extends Controller
         $profesionId = $request->id_profesion;
         $servicioId = $request->id_servicio;
         $nameProfesion = $request->nombre_profesion;
+        $profesion   = Profesiones::updateOrCreate(
+          ['id_profesion' => $profesionId],
+          [
+            'nombre_profesion' => $nameProfesion,
+            'servicio_id' => $servicioId
+          ],
+        );
 
-        $profesion   = Profesiones::updateOrCreate(['id_profesion' => $profesionId],
-            ['nombre_profesion' => $nameProfesion],['servicio_id' => $servicioId]);
 
         return Response::json($profesion);
     }
@@ -56,7 +61,6 @@ class ProfesionesController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -67,7 +71,19 @@ class ProfesionesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $where = array('id_profesion' => $id);
+        $profesion  = Profesiones::where($where)->first();
+
+        $where2 = array('id_servicio' => $profesion->servicio_id);
+
+        $servicio = Servicios::where($where2)->first();
+
+        $repuesta = [
+            'profesion' => $profesion,
+            'servicio' => $servicio
+        ];
+
+        return Response::json($repuesta);
     }
 
     /**

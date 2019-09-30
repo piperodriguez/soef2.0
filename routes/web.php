@@ -31,3 +31,4 @@ Route::delete('servicios/{id}', 'Admin\ServiciosController@destroy');
 //SERVICIOS
 Route::get('profesiones', 'Admin\ProfesionesController@index')->name('profesiones');
 Route::post('profesiones', 'Admin\ProfesionesController@store')->name('profesionesSave');
+Route::get('profesiones/{id}/edit', 'Admin\ProfesionesController@edit')->name('profesionesFormUpdate');
