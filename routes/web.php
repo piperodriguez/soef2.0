@@ -14,7 +14,7 @@
 
 Route::get('/', 'IndexController@bienvenido');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
@@ -35,3 +35,4 @@ Route::get('profesiones/{id}/edit', 'Admin\ProfesionesController@edit')->name('p
 //rouas para el crud de ciudades
 Route::resource('ciudades', 'Admin\CiudadesController');
 Route::resource('barrios', 'Admin\BarriosController');
+Route::resource('registro', 'PersonasController');

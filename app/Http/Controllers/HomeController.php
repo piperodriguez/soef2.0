@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Personas;
 
 
 class HomeController extends Controller
@@ -25,7 +26,21 @@ class HomeController extends Controller
     public function index(Request $request)
     {
        $request->user()->authorizeRoles(['user', 'admin']);
-        return view('home');
+
+       $id = auth()->user()->id;
+
+       $personal = Personas::where('user_id', '=', $id)->get();
+
+       $msg = null;
+
+       if (sizeof($personal) == 0) {
+            $msg = true;
+       } else {
+            $msg = false;
+       }
+
+
+        return view('home', compact('msg'));
     }
 
 }

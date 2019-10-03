@@ -72,14 +72,16 @@
                             @switch(Auth::user()->roles[0]["name"] )
                                 @case('admin')
                                     <li class="nav-itme dropdown">
-                                        <a  class="nav-link" href="{{ route('servicios') }}">Mantenimiento</a>
+                                        <a  class="nav-link" href="{{ route('servicios') }}"><i class="fas fa-cogs"></i> Mantenimiento</a>
                                     </li>
                                     @break
                                 @case('user')
 
                                     @break
                             @endswitch
-
+                            <li class="nav-itme dropdown">
+                                <a  class="nav-link" href="{{ route('home') }}"><i class="fas fa-home"></i></a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <img class="rounded-circle" style="width: 35px; height: 35px;" src="/storage/avatars/{{ Auth::user()->avatar }}"/>

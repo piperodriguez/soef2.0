@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Ciudades;
 
-class CiudadesController extends Controller
+class PersonasController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -20,8 +19,7 @@ class CiudadesController extends Controller
      */
     public function index()
     {
-        $ciudades = Ciudades::all();
-        return view('admin/ciudades/ciudades', compact('ciudades'));
+        return view('personas/formpersona');
     }
 
     /**
@@ -31,7 +29,7 @@ class CiudadesController extends Controller
      */
     public function create()
     {
-        return view('admin/ciudades/create');
+        return "siempre siempre";
     }
 
     /**
@@ -42,18 +40,7 @@ class CiudadesController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'nombre_ciudad'=>'required|unique:ciudades',
-        ]);
-
-        $ciudad = new Ciudades([
-            'nombre_ciudad' => $request->get('nombre_ciudad'),
-        ]);
-
-        $ciudad->save();
-        return redirect('/ciudades')->with('success', 'Ciudad saved!');
-
+        //
     }
 
     /**
@@ -75,8 +62,7 @@ class CiudadesController extends Controller
      */
     public function edit($id)
     {
-        $ciudad = Ciudades::find($id);
-        return view('admin/ciudades/edit', compact('ciudad'));
+        //
     }
 
     /**
@@ -88,15 +74,7 @@ class CiudadesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'nombre_ciudad'=>'required',
-        ]);
-
-        $ciudad = Ciudades::find($id);
-        $ciudad->nombre_ciudad =  $request->get('nombre_ciudad');
-        $ciudad->save();
-
-        return redirect('/ciudades')->with('success', 'Ciudad updated!');
+        //
     }
 
     /**
@@ -107,9 +85,6 @@ class CiudadesController extends Controller
      */
     public function destroy($id)
     {
-        $ciudad = Ciudades::find($id);
-        $ciudad->delete();
-
-        return redirect('/ciudades')->with('success', 'Contact deleted!');
+        //
     }
 }

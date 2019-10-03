@@ -8,6 +8,11 @@ use App\Models\Ciudades;
 use App\Models\Barrios;
 class BarriosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
    /**
      * Display a listing of the resource.
      *
@@ -93,7 +98,6 @@ class BarriosController extends Controller
         $request->validate([
             'nombre_barrio'=>'required',
         ]);
-
 
         $ciudad = Barrios::find($id);
         $ciudad->nombre_barrio =  $request->get('nombre_barrio');

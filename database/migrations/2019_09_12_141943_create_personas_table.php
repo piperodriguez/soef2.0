@@ -19,9 +19,6 @@ class CreatePersonasTable extends Migration
             $table->string('apellido', 100);
             $table->string('celular', 100);
             $table->string('email', 100);
-            $table->mediumText('direccion');
-            $table->mediumText('formacion');
-            $table->mediumText('experiencia');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('ciudad_id');

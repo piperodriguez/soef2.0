@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 use Response;
 class ProfesionesController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
