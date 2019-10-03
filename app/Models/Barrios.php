@@ -15,5 +15,9 @@ class Barrios extends Model
 	{
 	    return $this->belongsTo(Ciudades::class, 'ciudad_id');
 	}
+	public function ciudadBarrio($ciudad_id)
+	{
+		$ciudad = Ciudades::find($ciudad_id);
+		return $ciudad;
+	}
 }
-S

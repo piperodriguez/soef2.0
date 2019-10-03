@@ -34,3 +34,4 @@ Route::post('profesiones', 'Admin\ProfesionesController@store')->name('profesion
 Route::get('profesiones/{id}/edit', 'Admin\ProfesionesController@edit')->name('profesionesFormUpdate');
 //rouas para el crud de ciudades
 Route::resource('ciudades', 'Admin\CiudadesController');
+Route::resource('barrios', 'Admin\BarriosController');

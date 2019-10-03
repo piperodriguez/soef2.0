@@ -5,18 +5,18 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Ciudades;
-
-class CiudadesController extends Controller
+use App\Models\Barrios;
+class BarriosController extends Controller
 {
-    /**
+   /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $ciudades = Ciudades::all();
-        return view('admin/ciudades/ciudades', compact('ciudades'));
+        $barrios = Barrios::all();
+        return view('admin/barrios/barrios', compact('barrios'));
     }
 
     /**
@@ -26,7 +26,8 @@ class CiudadesController extends Controller
      */
     public function create()
     {
-        return view('admin/ciudades/create');
+        $ciudades = Ciudades::all();
+        return view('admin/barrios/create', compact('ciudades'));
     }
 
     /**
@@ -39,15 +40,18 @@ class CiudadesController extends Controller
     {
 
         $request->validate([
-            'nombre_ciudad'=>'required|unique:ciudades',
+            'nombre_barrio'=>'required',
+            'ciudad_id' =>'required'
+
         ]);
 
-        $ciudad = new Ciudades([
-            'nombre_ciudad' => $request->get('nombre_ciudad'),
+        $barrio = new Barrios([
+            'ciudad_id' => $request->get('ciudad_id'),
+            'nombre_barrio' => $request->get('nombre_barrio'),
         ]);
 
-        $ciudad->save();
-        return redirect('/ciudades')->with('success', 'Ciudad saved!');
+        $barrio->save();
+        return redirect('/barrios')->with('success', 'Barrio saved!');
 
     }
 
@@ -70,8 +74,11 @@ class CiudadesController extends Controller
      */
     public function edit($id)
     {
-        $ciudad = Ciudades::find($id);
-        return view('admin/ciudades/edit', compact('ciudad'));
+        $barrio = Barrios::find($id);
+        $ciudad_id = $barrio->ciudad_id;
+
+        $ciudades = Ciudades::where('id_ciudad', '!=', $barrio->ciudad_id)->get();
+        return view('admin/barrios/edit', compact('barrio', 'ciudad_id', 'ciudades'));
     }
 
     /**
@@ -84,14 +91,16 @@ class CiudadesController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre_ciudad'=>'required',
+            'nombre_barrio'=>'required',
         ]);
 
-        $ciudad = Ciudades::find($id);
-        $ciudad->nombre_ciudad =  $request->get('nombre_ciudad');
+
+        $ciudad = Barrios::find($id);
+        $ciudad->nombre_barrio =  $request->get('nombre_barrio');
+        $ciudad->ciudad_id = $request->get('ciudad_id');
         $ciudad->save();
 
-        return redirect('/ciudades')->with('success', 'Ciudad updated!');
+        return redirect('/barrios')->with('success', 'Barrio updated!');
     }
 
     /**
@@ -102,9 +111,9 @@ class CiudadesController extends Controller
      */
     public function destroy($id)
     {
-        $ciudad = Ciudades::find($id);
+        $ciudad = Barrios::find($id);
         $ciudad->delete();
 
-        return redirect('/ciudades')->with('success', 'Contact deleted!');
+        return redirect('/barrios')->with('success', 'Contact deleted!');
     }
 }

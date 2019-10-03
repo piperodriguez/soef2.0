@@ -16,7 +16,7 @@
     <a class="nav-link" href="{{ route('ciudades.index')}}">Ciudades</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="#">Barrios</a>
+    <a class="nav-link" href="{{ route('barrios.index')}}">Barrios</a>
   </li>
   <li class="nav-item">
     <a class="nav-link disabled" href="#">Lista de Usuarios</a>

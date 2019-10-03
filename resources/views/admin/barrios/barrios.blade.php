@@ -25,27 +25,29 @@
 </div>
 <div class="row">
 <div class="col-sm-12">
-    <h1 class="display-3">Ciudades</h1>
+    <h1 class="display-3">Lista de Barrios</h1>
     <br>
-    <a href="{{ route('ciudades.create')}}" class="btn btn-info" role="button">Registrar Ciudad</a>
+    <a href="{{ route('barrios.create')}}" class="btn btn-info" role="button">Registrar Barrio</a>
   <table class="table table-striped">
     <thead>
         <tr>
           <td>ID</td>
-          <td>Name</td>
+          <td>Ciudad</td>
+          <td>Barrio</td>
           <td colspan = 2>Actions</td>
         </tr>
     </thead>
     <tbody>
-        @forelse ($ciudades as $ciudad)
+        @forelse ($barrios as $barrio)
         <tr>
-            <td>{{$ciudad->id_ciudad}}</td>
-            <td>{{$ciudad->nombre_ciudad}}</td>
+            <td>{{$barrio->id_barrio}}</td>
+            <td>{{$barrio->ciudad['nombre_ciudad']}}</td>
+            <td>{{$barrio->nombre_barrio}}</td>
             <td>
-                <a href="{{ route('ciudades.edit',$ciudad->id_ciudad)}}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('barrios.edit',$barrio->id_barrio)}}" class="btn btn-primary">Edit</a>
             </td>
             <td>
-                <form action="{{ route('ciudades.destroy', $ciudad->id_ciudad)}}" method="post">
+                <form action="{{ route('barrios.destroy', $barrio->id_barrio)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>
