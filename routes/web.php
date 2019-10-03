@@ -32,3 +32,5 @@ Route::delete('servicios/{id}', 'Admin\ServiciosController@destroy');
 Route::get('profesiones', 'Admin\ProfesionesController@index')->name('profesiones');
 Route::post('profesiones', 'Admin\ProfesionesController@store')->name('profesionesSave');
 Route::get('profesiones/{id}/edit', 'Admin\ProfesionesController@edit')->name('profesionesFormUpdate');
+//rouas para el crud de ciudades
+Route::resource('ciudades', 'Admin\CiudadesController');

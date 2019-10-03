@@ -13,6 +13,9 @@
     <a class="nav-link" href="{{ route('profesiones')}}">Profesiones</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="{{ route('ciudades.index')}}">Ciudades</a>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" href="#">Barrios</a>
   </li>
   <li class="nav-item">
