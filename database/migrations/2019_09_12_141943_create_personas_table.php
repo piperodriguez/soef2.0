@@ -25,9 +25,6 @@ class CreatePersonasTable extends Migration
             $table->foreign('ciudad_id')->references('id_ciudad')->on('ciudades');
             $table->unsignedBigInteger('barrio_id');
             $table->foreign('barrio_id')->references('id_barrio')->on('barrios');
-            $table->unsignedBigInteger('profesion_id');
-            $table->foreign('profesion_id')->references('id_profesion')->on('profesion');
-
         });
     }
 

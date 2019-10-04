@@ -7,7 +7,7 @@ use App\Models\Ciudades;
 
 class Barrios extends Model
 {
-    public $timestamps = false;
+    public $timestamps = true;
 	protected $primaryKey = 'id_barrio';
 	protected $table = 'barrios';
 	protected $fillable = ['id_barrio','nombre_barrio','ciudad_id'];

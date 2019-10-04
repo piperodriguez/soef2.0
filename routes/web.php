@@ -36,3 +36,5 @@ Route::get('profesiones/{id}/edit', 'Admin\ProfesionesController@edit')->name('p
 Route::resource('ciudades', 'Admin\CiudadesController');
 Route::resource('barrios', 'Admin\BarriosController');
 Route::resource('registro', 'PersonasController');
+
+Route::get('getBarrio/{id}/', 'PersonasController@getBarrio')->name('getBarrio');
