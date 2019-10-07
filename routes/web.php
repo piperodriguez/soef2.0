@@ -38,3 +38,7 @@ Route::resource('barrios', 'Admin\BarriosController');
 Route::resource('registro', 'PersonasController');
 
 Route::get('getBarrio/{id}/', 'PersonasController@getBarrio')->name('getBarrio');
+
+Route::resource('perfilProfesional', 'PerfilprofesionalController');
+
+Route::get('getProfesion/{id}/', 'PerfilprofesionalController@getProfesion')->name('getProfesion');

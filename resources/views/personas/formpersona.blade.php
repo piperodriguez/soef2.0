@@ -11,7 +11,7 @@
 	  @endif
 	</div>
 	<div class="progress">
-		<div class="progress-bar bg-success" style="width:<?= $respuesta['porcentajeGeneral']?>%"></div>
+		<div class="progress-bar bg-info" style="width:<?= $respuesta['porcentajeGeneral']?>%"></div>
 	</div>
 	<br>
 	<br>
@@ -26,13 +26,15 @@
 	    </div>
 	    <div id="collapseOne" class="collapse" data-parent="#accordion">
 	      <div class="card-body">
-	        Estado {{$respuesta['porcentajePersona']}} %
+	        Estado <span id="dataPersona">{{$respuesta['porcentajePersona']}} %</span>
 			<div class="progress">
 			  <div class="progress-bar bg-success" style="width:<?= $respuesta['porcentajePersona']?>%"></div>
 			</div>
 			<br>
 			<div class="offset-md-11">
-				<a href="{{ route('registro.create') }}" class="btn btn-dark">Completar</a>
+				<button id="btnPersonal" class="btn btn-dark" role="link" onclick="window.location='{{ route('registro.create') }}'">
+				Completar
+				</button>
 			</div>
 	      </div>
 	    </div>
@@ -41,7 +43,7 @@
 	  <div class="card">
 	    <div class="card-header">
 	      <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-	        <i class="fas fa-briefcase"></i> Información Laboral
+	        <i class="fas fa-briefcase"></i> Perfil Profesional
 	      </a>
 	    </div>
 	    <div id="collapseTwo" class="collapse" data-parent="#accordion">
@@ -52,8 +54,8 @@
 			</div>
 			<br>
 			<div class="offset-md-11">
-				<button class="btn btn-dark" id="laboral">
-					<a href="#">Completar</a>
+				<button id="laboral" class="btn btn-dark" role="link" onclick="window.location='{{ route('perfilProfesional.create') }}'">
+				Completar
 				</button>
 			</div>
 	      </div>
@@ -83,6 +85,13 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		var estadoPersona = $("#estadoPersona").val();
+		var form1 = $("#dataPersona").text();
+		form1 = form1.split("%")[0];
+		if (parseInt(form1) == 100) {
+
+			$("#btnPersonal").prop("disabled", true);
+		}
+
 		if (estadoPersona == 0) {
 			$('#laboral').prop("disabled", true);
 		}else{

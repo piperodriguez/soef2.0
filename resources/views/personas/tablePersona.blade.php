@@ -19,23 +19,19 @@
 	          @csrf
 	          <div class="form-group">
 	              <label for="nombre_persona"> Nombres:</label>
-	              <input type="text" class="form-control" name="nombre_persona"/>
+	              <input type="text" class="form-control" name="nombre_persona" value="{{ old('nombre_persona') }}">
 	          </div>
 	          <div class="form-group">
 	              <label for="apellido_persona"> Apellidos:</label>
-	              <input type="text" class="form-control" name="apellido_persona"/>
+	              <input type="text" class="form-control" name="apellido_persona" value="{{ old('apellido_persona') }}"/>
 	          </div>
 	          <div class="form-group">
 	              <label for="celular"> Celular:</label>
-	              <input type="text" class="form-control" name="celular"/>
+	              <input type="text" class="form-control" name="celular" value="{{ old('celular') }}"/>
 	          </div>
-			  <div class="form-group">
-		              <label for="email"> Email:</label>
-		              <input type="email" class="form-control" name="email"/>
-		       </div>
 	          <div class="form-group">
 	          	<label for="ciudad_id"> Ciudad:</label>
-				<select name="ciudad_id" id="ciudad_id" class="form-control" onchange="getBarrios()">
+				<select name="ciudad_id" id="ciudad_id" class="form-control" value="{{ old('ciudad_id') }}" onchange="getBarrios()">
 						<option selected="">Seleccione la Ciudad</option>
 					@foreach($respuesta['ciudades'] as $ciudad)
 				       <option value="{{ $ciudad->id_ciudad}}">{{ $ciudad->nombre_ciudad}}</option>

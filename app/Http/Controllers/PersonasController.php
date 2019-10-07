@@ -88,7 +88,6 @@ class PersonasController extends Controller
         $request->validate([
             'nombre_persona'=>'required',
             'apellido_persona' =>'required',
-            'email' => 'required',
             'ciudad_id' => 'required',
             'barrio_id' => 'required',
             'user_id' => 'required'
@@ -98,7 +97,6 @@ class PersonasController extends Controller
             'nombre' => $request->get('nombre_persona'),
             'apellido' => $request->get('apellido_persona'),
             'celular' => $request->get('celular'),
-            'email' => $request->get('email'),
             'user_id' => $request->get('user_id'),
             'ciudad_id' => $request->get('ciudad_id'),
             'barrio_id' => $request->get('barrio_id'),

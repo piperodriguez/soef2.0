@@ -15,7 +15,7 @@ class CreateProfesionTable extends Migration
     {
         Schema::create('profesion', function (Blueprint $table) {
             $table->bigIncrements('id_profesion');
-            $table->mediumText('nombre_profesion');;
+            $table->mediumText('nombre_profesion');
             $table->unsignedBigInteger('servicio_id');
             $table->foreign('servicio_id')->references('id_servicio')->on('servicios');
         });

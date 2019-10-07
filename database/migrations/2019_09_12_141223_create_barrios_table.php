@@ -18,7 +18,7 @@ class CreateBarriosTable extends Migration
             $table->mediumText('nombre_barrio');
             $table->unsignedBigInteger('ciudad_id');
             $table->foreign('ciudad_id')->references('id_ciudad')->on('ciudades');
-
+            $table->timestamps();
         });
     }
 
