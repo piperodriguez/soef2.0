@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Personas;
-
+use App\Models\Perfil;
 
 class HomeController extends Controller
 {
@@ -31,12 +31,18 @@ class HomeController extends Controller
 
        $personal = Personas::where('user_id', '=', $id)->get();
 
-       $msg = null;
-
+       $msg =0;
        if (sizeof($personal) == 0) {
-            $msg = true;
-       } else {
-            $msg = false;
+            $msg = 0;
+       }else {
+
+            $msg = 33.3;
+            $perfil = Perfil::where('persona_id', '=', $personal[0]['id'])->get();
+            if (sizeof($perfil) == 0) {
+              $msg = 33.3;
+            } else {
+              $msg = 66;
+            }
        }
 
 
