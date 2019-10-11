@@ -17,13 +17,10 @@ class CreatePerfilTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->unsignedBigInteger('persona_id');
-            $table->foreign('persona_id')->references('id')->on('personas');
-            $table->unsignedBigInteger('servicio_id');
-            $table->foreign('servicio_id')->references('id_servicio')->on('servicios');
             $table->unsignedBigInteger('profesion_id');
             $table->foreign('profesion_id')->references('id_profesion')->on('profesion');
+            $table->string('titulo',35);
             $table->mediumText('descripción')->nullable();
-
         });
     }
 

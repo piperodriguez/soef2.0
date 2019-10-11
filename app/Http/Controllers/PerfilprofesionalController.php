@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Servicios;
 use App\Models\Profesiones;
 use App\Models\Personas;
+use App\Models\Perfil;
+
 class PerfilprofesionalController extends Controller
 {
     /**
@@ -47,7 +49,7 @@ class PerfilprofesionalController extends Controller
         if (sizeof($profesiones) > 0) {
             echo "<option>Seleccione una profesión</option>";
             foreach ($profesiones as $profesion) {
-                echo"<option value='".$profesion->id_profesions."'>".$profesion->nombre_profesion."</option>";
+                echo"<option value='".$profesion->id_profesion."'>".$profesion->nombre_profesion."</option>";
             }
         } else {
             echo "no se encuentran resultados";
@@ -66,14 +68,20 @@ class PerfilprofesionalController extends Controller
 
         $id = auth()->user()->id;
         $persona = Personas::where('user_id', '=', $id)->get();
-
-
+        $idPersona = $persona[0]['id'];
 
         $request->validate([
-            'servicio'=>'required',
             'profesion_id' =>'required',
-            'servicio_id' =>'required',
         ]);
+
+        $perfilPersona = new Perfil([
+            'persona_id' => $idPersona,
+            'profesion_id' => $request->get('profesion_id'),
+            'titulo' => $request->get('titulo'),
+            'descripción' => $request->get('descripcion'),
+        ]);
+
+        $perfilPersona->save();
 
         return redirect('registro')->with('success', 'Perfil Profesional saved!');
     }

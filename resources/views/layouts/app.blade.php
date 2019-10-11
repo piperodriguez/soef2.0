@@ -44,6 +44,16 @@
                         <a class="navbar-brand" href="{{ url('/') }}">
                             <span style="font-size: 35px;">{{ config('app.name', 'SOEF') }}</span>
                         </a>
+                        @guest
+
+                        @else
+                            <li class="nav-itme">
+                                <a  class="nav-link" href="{{ route('home') }}"><i class="fas fa-briefcase"></i> Publica tu Oferta</a>
+                            </li>
+                            <li class="nav-itme">
+                                <a  class="nav-link" href="{{ route('home') }}"><i class="fas fa-address-card"></i> Hoja de Vida </a>
+                            </li>
+                        @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -80,7 +90,7 @@
                                     @break
                             @endswitch
                             <li class="nav-itme dropdown">
-                                <a  class="nav-link" href="{{ route('home') }}"><i class="fas fa-home"></i></a>
+                                <a  class="nav-link" href="{{ route('home') }}"><i class="fas fa-home"></i> Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

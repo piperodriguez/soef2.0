@@ -13,7 +13,7 @@
 	              <li>{{ $error }}</li>
 	            @endforeach
 	        </ul>
-	      </div><br />
+	      </div><br/>
 	    @endif
 	      <form method="post" action="{{ route('registro.store') }}">
 	          @csrf

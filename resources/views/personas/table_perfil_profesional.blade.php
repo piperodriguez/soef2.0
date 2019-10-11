@@ -20,7 +20,7 @@
 	          <div class="form-group">
 	          	<label for="servicio"> Servicio:</label>
 				<select name="servicio" id="servicio" class="form-control" onchange="getServicio()">
-						<option selected="">Seleccione la Ciudad</option>
+						<option selected="">Seleccione Un servicio</option>
 					@foreach($respuesta['servicios'] as $servicio)
 				       <option value="{{ $servicio->id_servicio}}">{{ $servicio->nombre_servicio}}</option>
 				     @endforeach
@@ -34,11 +34,11 @@
 	          </div>
 	          <div class="form-group">
 	              <label for="titulo"> Cargo o título:</label>
-	              <input type="text" class="form-control" name="titulo"/>
+	              <input type="text" class="form-control" name="titulo" value="{{ old('titulo') }}"/>
 	          </div>
               <div class="form-group">
 	              <label for="descripcion"> Descripción:</label>
-  				  <textarea class="form-control" name="descripcion" rows="5"></textarea>
+  				  <textarea class="form-control" name="descripcion" rows="5" value="{{ old('descripcion') }}"></textarea>
 			  </div>
 	          <button type="submit" class="btn btn-dark">guardar</button>
 	      </form>

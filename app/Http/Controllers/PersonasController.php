@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Personas;
 use App\Models\Ciudades;
 use App\Models\Barrios;
+use App\Models\Perfil;
 
 class PersonasController extends Controller
 {
@@ -26,9 +27,12 @@ class PersonasController extends Controller
 
         $persona = Personas::where('user_id', '=', $id)->get();
 
+        $perfilPersona = Perfil::where('persona_id', '=', $persona[0]["id"])->get();
+
+
         $porcentajeGeneral = 0;
         $tablaPersona = 0;
-        $tablaFormacion = 0;
+        $tablaPerfil = 0;
 
         if (sizeof($persona) == 0) {
             $tablaPersona = 0;
@@ -36,13 +40,23 @@ class PersonasController extends Controller
             $tablaPersona = 100;
         }
 
+        if (sizeof($perfilPersona) == 0) {
+            $tablaPerfil = 0;
+        } else {
+            $tablaPerfil = 100;
+        }
+
         if ($tablaPersona > 0) {
             $porcentajeGeneral = 33;
+            if ($tablaPerfil > 0) {
+                $porcentajeGeneral = 66;
+            }
         }
 
         $respuesta = [
             'porcentajeGeneral' => $porcentajeGeneral,
-            'porcentajePersona' => $tablaPersona
+            'porcentajePersona' => $tablaPersona,
+            'porcentajePerfil' => $tablaPerfil
         ];
 
         return view('personas/formpersona', compact('respuesta', $respuesta));
