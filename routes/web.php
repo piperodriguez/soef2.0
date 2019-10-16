@@ -42,3 +42,8 @@ Route::get('getBarrio/{id}/', 'PersonasController@getBarrio')->name('getBarrio')
 Route::resource('perfilProfesional', 'PerfilprofesionalController');
 
 Route::get('getProfesion/{id}/', 'PerfilprofesionalController@getProfesion')->name('getProfesion');
+
+
+//login from google
+Route::get('/redirect', 'SocialAuthGoogleController@redirect');
+Route::get('/callback', 'SocialAuthGoogleController@callback');
