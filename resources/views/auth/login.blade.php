@@ -69,7 +69,7 @@
                         <br />
                         <div class = "form-group">
                             <div class = "col-md-8 col-md-offset -4 ">
-                              <a href="{{url('/redirect')}}" class="btn btn-primary"> Inicie sesión con Google </a>
+                              <a href="{{url('/redirect')}}" class="btn btn-primary"><img width="20" height="20" src="imagenes/iconGoogle.png"> Continuar con Google </a>
                             </div>
                         </div>
                     </form>
