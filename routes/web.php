@@ -47,3 +47,6 @@ Route::get('getProfesion/{id}/', 'PerfilprofesionalController@getProfesion')->na
 //login from google
 Route::get('/redirect', 'SocialAuthGoogleController@redirect');
 Route::get('/callback', 'SocialAuthGoogleController@callback');
+
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

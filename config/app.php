@@ -228,5 +228,5 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
-
+    'Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider',
 ];

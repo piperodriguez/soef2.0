@@ -23,28 +23,24 @@ class PersonasController extends Controller
      */
     public function index()
     {
-        $id = auth()->user()->id;
-
-        $persona = Personas::where('user_id', '=', $id)->get();
-
-        $perfilPersona = Perfil::where('persona_id', '=', $persona[0]["id"])->get();
-
-
         $porcentajeGeneral = 0;
         $tablaPersona = 0;
         $tablaPerfil = 0;
+        $id = auth()->user()->id;
+        $objPersona = Personas::where('user_id', '=', $id)->get();
 
-        if (sizeof($persona) == 0) {
-            $tablaPersona = 0;
-        } else {
+       if (sizeof($objPersona) != 0) {
             $tablaPersona = 100;
-        }
+            $perfil = Perfil::where('persona_id', '=', $objPersona[0]['id'])->get();
+            if (sizeof($perfil) != 0) {
+                $tablaPerfil = 100;
+            }
 
-        if (sizeof($perfilPersona) == 0) {
-            $tablaPerfil = 0;
-        } else {
-            $tablaPerfil = 100;
-        }
+       } else {
+
+        $porcentajeGeneral = 0;
+
+       }
 
         if ($tablaPersona > 0) {
             $porcentajeGeneral = 33;
