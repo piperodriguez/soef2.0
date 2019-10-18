@@ -14,6 +14,8 @@ class UserController extends Controller
 
     public function update_avatar(Request $request)
     {
+
+        dd($request);
     	//valida la extension y el tamaño de la imagen
         $request->validate(
             [
