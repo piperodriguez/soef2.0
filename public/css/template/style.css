@@ -621,9 +621,9 @@ li>a:only-child:after {
 }
 
 .btn:hover {
-    background: #feac00;
-    border: 2px solid #feac00;
-    color: #333;
+    background: #3492AB !important;
+    border: 2px solid black;
+    color: #ffff;
     transition: .5s ease-in;
     -webkit-transition: .5s ease-in;
     -moz-transition: .5s ease-in;
@@ -632,9 +632,8 @@ li>a:only-child:after {
 }
 
 .btn.more {
-    background: #feac00;
-    border: 2px solid #feac00;
-    color: #222;
+    background: #3492AB !important;
+    color: #ffffff;
 }
 
 .btn.more.black:hover {
@@ -838,7 +837,7 @@ h3.tittle-w3ls.two {
 
 /*--//features--*/
 .services {
-    background: url(../../imagenes/banner4.jpg) no-repeat top;
+    background: url(../../imagenes/banner2.jpg) no-repeat top;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -2270,3 +2269,81 @@ a.move-top span {
 }
 
 /*--//responsive--*/
+
+/*estilos frodriguez*/
+.nav_w3pvt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    margin: 0 auto;
+    background: transparent;
+    margin-top: 1.2em;
+    background-color: #3492AB ! important;
+}
+
+.fake-radio {
+    text-align: center;
+    position: absolute;
+    bottom: 5%;
+    right: 47%;
+    z-index: 9;
+}
+
+.cta-info {
+    border: 5px solid #226376;
+    padding: 40px 0px;
+    background-color: whitesmoke;
+    border-radius: 22px;
+}
+
+
+.botm-line {
+    background-color: #3492AB;
+    width: 34px;
+    height: 3px;
+    display: inline-block;
+}
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+
+img#imageSoefServices {
+    width: 59%;
+    height: auto;
+    display: block;
+    margin: auto;
+    box-shadow: 5px 10px #888888;
+}
+
+
+h2#tituloServicios {
+    margin-top: 11%;
+}
+
+
+a.navbar-brand.px-0.mx-0 {
+    padding-top: 2%;
+    /* margin-left: -16%; */
+    padding-left: 5% !important;
+}
+
+
+.fa-globe:before {
+    content: "\f0ac";
+    color: #3492AB ! important;
+}
+
+
+.copy_right {
+    border-top: 1px solid rgba(221, 221, 221, 0.12);
+    background-color: #3492AB ! important;
+}
+
+.col-md-6.banner_bottom_left.mt-lg-0.mt-4 {
+    background-color: whitesmoke !important;
+}
