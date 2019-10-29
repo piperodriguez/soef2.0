@@ -1,12 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<style type="text/css">
-img.rounded-circle.avatar {
-    width: 255px !important;
-    height: 255px !important;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+<br><br><br><br><br>
     <div class="container">
         <div class="row">
             @if ($message = Session::get('success'))
@@ -50,7 +46,7 @@ img.rounded-circle.avatar {
                     <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
                     <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-dark">Cargar</button>
             </form>
         </div>
     </div>

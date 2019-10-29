@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
 <input type="hidden" id="alerta" value="{{$msg}}">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" id="welcomeContenedor">
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
                     @if (session('status'))

@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
 <div class="container">
+
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" id="formLogin">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
@@ -53,23 +55,21 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-dark">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn more" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
                             </div>
                         </div>
-                        <br />
-                        <p style = "margin-left: 265px"> OR </p>
-                        <br />
+                        <hr>
                         <div class = "form-group">
                             <div class = "col-md-8 col-md-offset -4 ">
-                              <a href="{{url('/redirect')}}" class="btn btn-primary"><img width="20" height="20" src="imagenes/iconGoogle.png"> Continuar con Google </a>
+                              <a href="{{url('/redirect')}}" class="btn btn-dark"><img width="20" height="20" src="imagenes/iconGoogle.png"> Continuar con Google </a>
                             </div>
                         </div>
                     </form>

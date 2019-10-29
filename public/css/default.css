@@ -1,0 +1,23 @@
+body{
+	background-color: whitesmoke !important;
+	font-family: 'Montserrat', sans-serif !important;
+}
+/*footer al raz de la pagina*/
+.copy_right.p-3.d-flex {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+/*cambios de la vista auth/login*/
+div#formLogin {
+    margin-top: 17%;
+}
+/*cambios de la vista WELCOME*/
+div#welcomeContenedor {
+    margin-top: 17%;
+}
+/*cambios de la vista PROFILE*/
+img.rounded-circle.avatar {
+    width: 255px !important;
+    height: 255px !important;
+}
