@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
-<div class="row">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+<div class="container">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Actualizar Barrio</h1>
+        <h2 style="margin-top: 12px;" class="alert alert-dark">Actualizar Barrio {{ $barrio->nombre_barrio }} </h2>
+
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -31,7 +32,7 @@
                 <label for="nombre_ciudad">Nombre Barrio:</label>
                 <input type="text" class="form-control" name="nombre_barrio" value="{{ $barrio->nombre_barrio }}" />
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-dark">Actualizar</button>
         </form>
     </div>
 </div>

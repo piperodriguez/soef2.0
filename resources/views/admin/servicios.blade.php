@@ -1,10 +1,14 @@
-<script src="{{ asset('js/librerias/jquery-3.4.1.js') }}"></script>
 @extends('layouts.app')
 @section('content')
- <style>
-   .container{
-    padding: 0.5%;
-   }
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+<style type="text/css">
+.copy_right.p-3.d-flex {
+    position: inherit !important;
+    margin-bottom: 0;
+    width: 100%;
+    margin-top: 4%;
+}
 </style>
 <ul class="nav">
   <li class="nav-item">

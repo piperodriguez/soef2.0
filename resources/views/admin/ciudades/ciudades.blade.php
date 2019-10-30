@@ -1,5 +1,15 @@
 @extends('layouts.app')
 @section('content')
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+<style type="text/css">
+.copy_right.p-3.d-flex {
+    position: inherit !important;
+    margin-bottom: 0;
+    width: 100%;
+    margin-top: 4%;
+}
+</style>
 <ul class="nav">
   <li class="nav-item">
     <a class="nav-link" href="{{ route('servicios')}}">Servicios</a>
@@ -23,12 +33,12 @@
     </div>
   @endif
 </div>
-<div class="row">
+<div class="container">
 <div class="col-sm-12">
-    <h1 class="display-3">Ciudades</h1>
-    <br>
+
+    <h2 style="margin-top: 12px;" class="alert alert-dark">Ciudades</h2><br>
     <a href="{{ route('ciudades.create')}}" class="btn btn-info" role="button">Registrar Ciudad</a>
-  <table class="table table-striped">
+  <table class="table table-striped table-hover">
     <thead>
         <tr>
           <td>ID</td>
@@ -42,7 +52,7 @@
             <td>{{$ciudad->id_ciudad}}</td>
             <td>{{$ciudad->nombre_ciudad}}</td>
             <td>
-                <a href="{{ route('ciudades.edit',$ciudad->id_ciudad)}}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('ciudades.edit',$ciudad->id_ciudad)}}" class="btn btn-dark">Edit</a>
             </td>
             <td>
                 <form action="{{ route('ciudades.destroy', $ciudad->id_ciudad)}}" method="post">

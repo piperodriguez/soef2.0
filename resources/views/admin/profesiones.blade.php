@@ -1,11 +1,17 @@
-<script src="{{ asset('js/librerias/jquery-3.4.1.js') }}"></script>
 @extends('layouts.app')
 @section('content')
- <style>
-   .container{
-    padding: 0.5%;
-   }
+
+ <link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+
+<style type="text/css">
+.copy_right.p-3.d-flex {
+    position: inherit !important;
+    margin-bottom: 0;
+    width: 100%;
+    margin-top: 4%;
+}
 </style>
+
 <ul class="nav">
   <li class="nav-item">
     <a class="nav-link" href="{{ route('servicios')}}">Servicios</a>
@@ -22,7 +28,7 @@
     <a class="nav-link disabled" href="#">Lista de Usuarios</a>
   </li>
 </ul>
-<div class="container">
+<div class="container" id="PorfesionesContenedor">
     <h2 style="margin-top: 12px;" class="alert alert-dark">Lista Profesiones</h2><br>
     <div class="row">
         <div class="col-12">

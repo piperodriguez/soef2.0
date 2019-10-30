@@ -1,5 +1,14 @@
 @extends('layouts.app')
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+<style type="text/css">
+.copy_right.p-3.d-flex {
+    position: inherit !important;
+    margin-bottom: 0;
+    width: 100%;
+    margin-top: 4%;
+}
+</style>
 <ul class="nav">
   <li class="nav-item">
     <a class="nav-link" href="{{ route('servicios')}}">Servicios</a>
@@ -23,9 +32,9 @@
     </div>
   @endif
 </div>
-<div class="row">
+<div class="container">
 <div class="col-sm-12">
-    <h1 class="display-3">Lista de Barrios</h1>
+    <h2 style="margin-top: 12px;" class="alert alert-dark">Lista de Barrios</h2>
     <br>
     <a href="{{ route('barrios.create')}}" class="btn btn-info" role="button">Registrar Barrio</a>
   <table class="table table-striped">
@@ -44,7 +53,7 @@
             <td>{{$barrio->ciudad['nombre_ciudad']}}</td>
             <td>{{$barrio->nombre_barrio}}</td>
             <td>
-                <a href="{{ route('barrios.edit',$barrio->id_barrio)}}" class="btn btn-primary">Edit</a>
+                <a href="{{ route('barrios.edit',$barrio->id_barrio)}}" class="btn btn-dark">Edit</a>
             </td>
             <td>
                 <form action="{{ route('barrios.destroy', $barrio->id_barrio)}}" method="post">

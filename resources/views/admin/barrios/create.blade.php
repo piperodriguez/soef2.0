@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
-<div class="row">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+<div class="container">
 	 <div class="col-sm-5 offset-sm-2">
-	    <h1 class="display-3">Nuevo Barrio</h1>
+	 	<h2 style="margin-top: 12px;" class="alert alert-dark">Registrar Barrio </h2>
 	  <div>
 	    @if ($errors->any())
 	      <div class="alert alert-danger">
