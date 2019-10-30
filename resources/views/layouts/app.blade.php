@@ -66,7 +66,7 @@
                         <a  class="nav-link" href="{{ route('home') }}"><i class="fas fa-briefcase"></i> Publica tu Oferta</a>
                      </li>
                      <li class="nav-itme">
-                        <a  class="nav-link" href="{{ route('home') }}"><i class="fas fa-address-card"></i> Hoja de Vida </a>
+                        <a  class="nav-link" href="{{ route('hj') }}"><i class="fas fa-address-card"></i> Hoja de Vida </a>
                      </li>
                      @switch(Auth::user()->roles[0]["name"] )
                      @case('admin')

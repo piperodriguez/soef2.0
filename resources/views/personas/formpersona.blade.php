@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
 <div class="container">
-      <h1>Estado general del registro <?= $respuesta['porcentajeGeneral']?>%</h1>
+      <h1 style="margin-top: 12px;" class="alert alert-dark">Estado general del registro <?= $respuesta['porcentajeGeneral']?>%</h1>
       <div class="col-sm-12">
          @if(session()->get('success'))
          <div class="alert alert-success">
@@ -76,7 +76,10 @@
                   </div>
                   <br>
                   <div class="offset-md-11">
-                     <a href="" class="btn btn-dark">Completar</a>
+                     <button id="btnProfesional" class="btn btn-dark" role="link" onclick="window.location='{{ route('getFormacion') }}'">
+                     Completar
+                     </button>
+
                   </div>
                </div>
             </div>

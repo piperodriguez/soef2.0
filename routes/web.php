@@ -50,3 +50,9 @@ Route::get('/callback', 'SocialAuthGoogleController@callback');
 
 
 Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
+
+Route::get('formacion', 'FormacionController@index')->name('getFormacion');
+
+
+Route::get('myhj', 'HojaVidaController@index')->name('hj');

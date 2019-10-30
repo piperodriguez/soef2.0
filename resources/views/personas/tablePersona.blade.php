@@ -2,6 +2,14 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+<style type="text/css">
+.copy_right.p-3.d-flex {
+    position: inherit !important;
+    margin-bottom: 0;
+    width: 100%;
+    margin-top: 4%;
+}
+</style>
 <div class="row">
 	 <div class="col-sm-5 offset-sm-2">
 	    <h1 class="display-6">Información Personal</h1>

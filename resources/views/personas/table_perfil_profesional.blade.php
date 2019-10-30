@@ -2,8 +2,15 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
-<br><br><br><br><br>
-<div class="row">
+<style type="text/css">
+.copy_right.p-3.d-flex {
+    position: inherit !important;
+    margin-bottom: 0;
+    width: 100%;
+    margin-top: 4%;
+}
+</style>
+<div class="container">
 	 <div class="col-sm-5 offset-sm-2">
 	    <h1 class="display-6">Perfil Profesional</h1>
 	  <div>
