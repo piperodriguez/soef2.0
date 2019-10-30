@@ -2,6 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+<br>
 <input type="hidden" id="alerta" value="{{$msg}}">
 <div class="container">
     <div class="row justify-content-center">

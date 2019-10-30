@@ -2,19 +2,31 @@ body{
 	background-color: whitesmoke !important;
 	font-family: 'Montserrat', sans-serif !important;
 }
+.nav_w3pvt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    margin: 0 auto;
+    background:
+transparent;
+    background-color: transparent;
+background-color:#3492AB !important;
+}
+.py-4 {
+    margin-top: 0%;
+    padding-top: 7%;
+}
+
+.top_w3pvt_main {
+    position: inherit;
+    z-index: 1;
+}
 /*footer al raz de la pagina*/
 .copy_right.p-3.d-flex {
     position: absolute;
     bottom: 0;
     width: 100%;
-}
-/*cambios de la vista auth/login*/
-div#formLogin {
-    margin-top: 17%;
-}
-/*cambios de la vista WELCOME*/
-div#welcomeContenedor {
-    margin-top: 17%;
 }
 /*cambios de la vista PROFILE*/
 img.rounded-circle.avatar {

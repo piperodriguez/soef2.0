@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
 <div class="row">
 	 <div class="col-sm-5 offset-sm-2">
 	    <h1 class="display-6">Información Personal</h1>
@@ -50,6 +50,8 @@
 	  </div>
 	</div>
 </div>
+
+<br><br><br>
 <script type="text/javascript">
 function getBarrios(){
 	var id_ciudad = $("#ciudad_id").val();
@@ -63,4 +65,5 @@ function getBarrios(){
 		});
 	}
 </script>
+
 @endsection

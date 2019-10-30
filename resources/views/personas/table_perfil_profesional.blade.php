@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-
+<link rel="stylesheet" type="text/css" href="{{ asset('css/default.css') }}">
+<br><br><br><br><br>
 <div class="row">
 	 <div class="col-sm-5 offset-sm-2">
 	    <h1 class="display-6">Perfil Profesional</h1>
