@@ -86,9 +86,11 @@
                   @php
                   $servicioid = $servicio->id_servicio;
                   $profesiones = $data['profesionModel'];
-                  $profesionesArr = $profesiones::find($servicioid);
+                  $profesionesArr = $profesiones::select('nombre_profesion')->where('servicio_id',$servicioid)->get();
                   @endphp
-                  <li>{{$profesionesArr['nombre_profesion']}}</li>
+                  @foreach($profesionesArr as $value)
+                  <li>{{$value['nombre_profesion']}}</li>
+                  @endforeach
                 </ul>
                </div>
             </div>
