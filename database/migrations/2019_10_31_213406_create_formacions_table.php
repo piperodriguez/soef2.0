@@ -13,8 +13,12 @@ class CreateFormacionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('formacions', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('formacion', function (Blueprint $table) {
+            $table->bigIncrements('id_formacion');
+            $table->unsignedBigInteger('estudio_id');
+            $table->foreign('estudio_id')->references('id_estudio')->on('nivel_estudios');
+            $table->longText('institucion');
+            $table->integer('id_persona');
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateFormacionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formacions');
+        Schema::dropIfExists('formacion');
     }
 }

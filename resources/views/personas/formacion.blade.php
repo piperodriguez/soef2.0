@@ -18,13 +18,17 @@
    <form method="post" action="{{ route('barrios.store') }}">
       @csrf
       <div class="form-group">
-         <label for="sel1">Nivel de Academico:</label>
-         <select class="form-control" id="sel1" name="sellist1">
+         <label for="nivelFormacion">Nivel de Academico:</label>
+         <select class="form-control" id="nivelFormacion" name="nivelFormacion">
             <option selected="">Seleccione</option>
             @foreach($data['nivelEstudio'] as $grado)
             <option value="{{ $grado->id_estudio}}">{{ $grado->descripcion}}</option>
             @endforeach
          </select>
+      </div>
+      <div class="form-group">
+         <label for="inst">Nombre Institución</label>
+         <input type="text" name="" class="form-control">
       </div>
    </form>
 </div>
