@@ -15,7 +15,7 @@
    </div>
    <br />
    @endif
-   <form method="post" action="{{ route('barrios.store') }}">
+   <form method="post" action="{{ route('saveFormacion') }}">
       @csrf
       <div class="form-group">
          <label for="nivelFormacion">Nivel de Academico:</label>
@@ -28,8 +28,9 @@
       </div>
       <div class="form-group">
          <label for="inst">Nombre Institución</label>
-         <input type="text" name="" class="form-control">
+         <input type="text" name="institucion" class="form-control">
       </div>
+      <input type="submit"  value="Guardar" class="btn btn-dark">
    </form>
 </div>
 @endsection

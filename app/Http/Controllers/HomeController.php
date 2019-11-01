@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Personas;
 use App\Models\Perfil;
-
+use App\Models\formacion;
 class HomeController extends Controller
 {
     /**
@@ -13,9 +13,11 @@ class HomeController extends Controller
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('auth');
+        $this->_modelFormacion = new formacion();
     }
 
     /**
@@ -34,18 +36,21 @@ class HomeController extends Controller
        $msg =0;
        if (sizeof($personal) == 0) {
             $msg = 0;
-       }else {
+       } else {
 
             $msg = 33.3;
             $perfil = Perfil::where('persona_id', '=', $personal[0]['id'])->get();
             if (sizeof($perfil) == 0) {
               $msg = 33.3;
             } else {
-              $msg = 66;
+              $infoAcademica = $this->_modelFormacion::where('id_persona', '=', $personal[0]['id'])->get();
+              if (sizeof($infoAcademica) == 0) {
+                $msg = 66;
+              } else {
+                $msg = 100;
+              }
             }
        }
-
-
         return view('home', compact('msg'));
     }
 

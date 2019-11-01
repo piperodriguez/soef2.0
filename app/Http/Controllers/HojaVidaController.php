@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 class HojaVidaController extends Controller
 {
 
+	public function __construct()
+	{
+
+
+	}
+
+
     public function index()
     {
 
