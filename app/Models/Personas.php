@@ -16,7 +16,9 @@ class Personas extends Model
 	public function getIdPersona($id)
 	{
 		$idPersona =  Personas::select('id')->where('user_id', $id)->get();
-		return $idPersona->toArray();
+		$arrResponse = $idPersona->toArray();
+
+		return $arrResponse[0]['id'];
 	}
 
 }

@@ -20,6 +20,16 @@ i#iconAcademico {
 	    		<i class="fas fa-balance-scale" id="iconProfesion"></i>
 	    		<font color="black">Perfil profesional</font>
 	    	</h2>
+	    	<ul>
+	    	@foreach($dataPerfil as $perfil)
+	    		<?php
+	    		echo "<pre>";
+	    			var_dump($perfil);
+	    		echo "</pre>";
+	    		?>
+
+	    	@endforeach
+	    	</ul>
 	    </div>
 	  </div>
 	  <div class="card bg-light text-white">
