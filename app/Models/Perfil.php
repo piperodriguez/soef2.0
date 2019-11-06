@@ -14,18 +14,7 @@ class Perfil extends Model
 
 	public function getDataPerfil($idPersona)
 	{
-		$perfil = Perfil::find($idPersona);
-		$arrResponse = $perfil->toArray();
-
-		echo "<pre>";
-
-		foreach ($arrResponse as $key => $value) {
-			print_r($key);
-		}
-
-		echo "</pre>";
-
-		die();
-		return $arrResponse;
+		$query = Perfil::where('persona_id', $idPersona)->get();
+		return $query;
 	}
 }

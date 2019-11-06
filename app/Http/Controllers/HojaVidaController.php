@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Perfil;
 use App\Models\Personas;
+
 class HojaVidaController extends Controller
 {
 
@@ -21,7 +22,8 @@ class HojaVidaController extends Controller
     	$id = auth()->user()->id;
     	$idPersona = $this->_modelPersona->getIdPersona($id);
     	$dataPerfil = $this->_modelPerfil->getDataPerfil($idPersona);
+        $inforPersonal = $this->_modelPersona->getinfoPerson($idPersona);
 
-    	return view('personas/hojaVida', compact('dataPerfil'));
+       	return view('personas/hojaVida', compact('dataPerfil'), compact('inforPersonal'));
     }
 }

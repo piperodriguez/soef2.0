@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\NivelEstudios;
 
-class NivelEstdiosTableSeeder extends Seeder
+class NivelEstudiosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,6 @@ class NivelEstdiosTableSeeder extends Seeder
      */
     public function run()
     {
-
         NivelEstudios::create([
             'descripcion' => 'Básica Primaria'
         ]);
@@ -32,7 +31,5 @@ class NivelEstdiosTableSeeder extends Seeder
 		NivelEstudios::create([
             'descripcion' => 'Carrera profesional'
         ]);
-
-
     }
 }
